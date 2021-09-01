@@ -1,9 +1,12 @@
+import "reflect-metadata";
 import express from "express";
+
+import "./database";
 
 const app = express();
 
 /* 
-Inicio => Teste na construção de métodos
+Inicio => Teste na construção dos métodos
 */
 
 //Método de GET
@@ -17,7 +20,7 @@ app.post("/test-post", (request, response) => {
 })
 
 /* 
-Final => Teste na construção de métodos
+Final => Teste na construção dos métodos
 */
 
 // Escuta do Servidor na porta definida
