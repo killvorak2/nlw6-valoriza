@@ -1,0 +1,15 @@
+{
+  "name": "nlw6-valoriza",
+  "version": "1.0.0",
+  "description": "Reprodução do projeto desenvolvido no NLW 6 da rocketseat",
+  "main": "index.js",
+  "repository": "https://github.com/killvorak2/nlw6-valoriza.git",
+  "author": "Marcelo <marcelo.ceribelli@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "typescript": "^4.4.2"
+  },
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
