@@ -8,6 +8,9 @@ import "./database";
 
 const app = express();
 
+//para que o middleware(através do express), possa trabalhar com json
+app.use(express.json());
+
 // Tornando agora uma middleware
 app.use(router);
 

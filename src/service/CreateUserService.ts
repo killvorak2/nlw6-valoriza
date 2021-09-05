@@ -1,3 +1,4 @@
+import { getCustomRepository } from "typeorm";
 import { UsersRepositories } from "../repositories/UsersRepositories";
 
 // Criando a interface com os dados a serem usados para usuários
@@ -9,7 +10,7 @@ interface IUserRequest{
 //Todas as regras para criação de usuários
 class CreateUserService {
   async execute({name, email, admin}: IUserRequest) {
-    const usersRepository = new UsersRepositories();
+    const usersRepository = getCustomRepository(UsersRepositories);
     
     //verifica se esta sem email
     if (!email) {
