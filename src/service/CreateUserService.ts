@@ -1,15 +1,17 @@
 import { getCustomRepository } from "typeorm";
 import { UsersRepositories } from "../repositories/UsersRepositories";
+import { hash } from "bcryptjs"
 
 // Criando a interface com os dados a serem usados para usuários
 interface IUserRequest{
   name: string;
   email: string;
   admin?: boolean;
+  password: string;
 }
 //Todas as regras para criação de usuários
 class CreateUserService {
-  async execute({name, email, admin}: IUserRequest) {
+  async execute({name, email, admin, password}: IUserRequest) {
     const usersRepository = getCustomRepository(UsersRepositories);
     
     //verifica se esta sem email
@@ -27,11 +29,15 @@ class CreateUserService {
       throw new Error(`User ${name} already exists`);
     }
 
+    //criptografa a senha 
+    const passwordHash = await hash(password, 8)
+
     // criando instancia do usuario para salvar
     const user = usersRepository.create({
       name,
       email,
-      admin
+      admin,
+      password: passwordHash,
     })
 
     //recebe o objeto user para salvar
